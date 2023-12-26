@@ -56,6 +56,7 @@ function destroy(id) {
                                 <th scope="col" class="px-6 py-3">Id</th>
                                 <th scope="col" class="px-6 py-3">Name</th>
                                 <th scope="col" class="px-6 py-3">Price</th>
+                                <th scope="col" class="px-6 py-3">Image</th>
                                 <th scope="col" class="px-6 py-3">Action</th>
                             </tr>
                         </thead>
@@ -69,10 +70,20 @@ function destroy(id) {
                                 <td>{{ item.name }}</td>
                                 <td>{{ item.price }}</td>
                                 <td>
+                                    <img
+                                        :src="item.gallery[0]"
+                                        height="80px"
+                                        width="120px"
+                                        alt=""
+                                    />
+                                </td>
+                                <td>
                                     <div class="flex flex-row items-center">
                                         <Link
                                             class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
-                                            :href="route('product.edit', item.id)"
+                                            :href="
+                                                route('product.edit', item.id)
+                                            "
                                         >
                                             Edit
                                         </Link>

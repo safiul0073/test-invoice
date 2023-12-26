@@ -18,8 +18,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products = Product::with(['group:id,name', 'variants'])->paginate();
         return Inertia::render('Product/Index', [
-            'products' => Product::with(['group:id,name', 'variants'])->paginate(),
+            'products' => $products,
         ]);
     }
 

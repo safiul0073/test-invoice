@@ -12,7 +12,7 @@ class Product extends Model
 
     protected $guarded = ['id'];
 
-    protected $append = ['gallery'];
+    protected $appends = ['gallery'];
 
     public function group(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
@@ -38,7 +38,7 @@ class Product extends Model
             get: function () {
                 $medias = $this->medias;
                 if ($medias) {
-                    return $medias->map(fn ($item) => config('app.url') . "'/storage/'". $item->url)->toArray();
+                    return $medias->map(fn ($item) => config('app.url') . '/storage/'. $item->url)->toArray();
                 }
                 return null;
             },
